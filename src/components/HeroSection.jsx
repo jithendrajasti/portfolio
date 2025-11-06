@@ -8,11 +8,11 @@ const HeroSection = () => {
       className="relative min-h-screen flex flex-col items-center justify-center px-4 mb-12"
     >
       <div className="flex items-center justify-center relative">
-        <div className="w-full overflow-hidden rounded-full ring-4 ring-primary/20">
+        <div className="w-full overflow-hidden rounded-full ring-4 ring-secondary/30 shadow-lg">
           <img
             src={profile}
             alt="Jithendra Jasti profile"
-            className="w-60 h-60 object-cover rounded-full"
+            className="w-60 h-60 object-cover rounded-full ring-8 ring-primary"
           />
         </div>
 
