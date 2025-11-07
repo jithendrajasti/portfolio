@@ -15,6 +15,38 @@ const HeroSection = () => {
             className="w-60 h-60 object-cover rounded-full ring-8 ring-primary"
           />
         </div>
+
+        {/* Social Icons */}
+        <div className="absolute -right-14 flex flex-col gap-4">
+          {[
+            {
+              href: "https://github.com/jithendrajasti",
+              icon: <Github className="h-5 w-5 sm:h-7 sm:w-7" />,
+              label: "GitHub",
+            },
+            {
+              href: "https://www.linkedin.com/in/jithendra-mohan-jasti-40691b285",
+              icon: <Linkedin className="h-5 w-5 sm:h-7 sm:w-7" />,
+              label: "LinkedIn",
+            },
+            {
+              href: "https://www.instagram.com/jithendrajasti",
+              icon: <Instagram className="h-5 w-5 sm:h-7 sm:w-7" />,
+              label: "Instagram",
+            },
+          ].map(({ href, icon, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={label}
+              className="bg-background/90 dark:bg-slate-800 text-primary p-2 rounded-full shadow-md hover:scale-110 hover:text-primary transition-transform duration-300"
+            >
+              {icon}
+            </a>
+          ))}
+        </div>
       </div>
 
       <div className="container max-w-4xl mx-auto text-center z-10 mt-8">
