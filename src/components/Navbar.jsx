@@ -13,15 +13,16 @@ const Navbar = () => {
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+      setIsMenuOpen(false);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isMenuOpen]);
 
   return (
     <nav
@@ -59,21 +60,22 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Nav Toggle */}
-        <button
+        {!isScrolled && (
+          <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50"
           aria-label={isMenuOpen ? 'Close Menu' : 'Open Menu'}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{' '}
         </button>
+        )}
 
         {/* Mobile Menu Overlay */}
         <div
           id="mobile-menu"
           className={cn(
-            'fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center',
+            'fixed inset-0 backdrop-blur-md z-40 flex flex-col items-center justify-center',
             'transition-all duration-300 md:hidden',
             isMenuOpen
               ? 'opacity-100 pointer-events-auto'
