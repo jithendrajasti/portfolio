@@ -62,7 +62,7 @@ const Navbar = () => {
         {/* Mobile Nav Toggle */}
         {!isScrolled && (
           <button
-          className='md:hidden'
+          className='md:hidden z-50 text-foreground/80 hover:text-primary transition-colors duration-300'
           onClick={() => setIsMenuOpen((prev) => !prev)}
           aria-label={isMenuOpen ? 'Close Menu' : 'Open Menu'}
           aria-expanded={isMenuOpen}
